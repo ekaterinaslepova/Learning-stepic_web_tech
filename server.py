@@ -23,7 +23,7 @@ try:
         except:
           continue
 
-        if not data or data.decode('utf-8') == 'close\r\n':
+        if not data or data == 'close':
           break
         else:
           conn.send(data)
