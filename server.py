@@ -13,11 +13,8 @@ try:
     conn, addr = s.accept()
     print('New connection', addr)
     newpid = os.fork()
-    if newpid != 0:
-      pids.append(newpid)
-    else:
-      print('Opening socket:', addr, os.getpid())
-      while True:
+    print('Opening socket:', addr, os.getpid())
+    while True:
         try:
           data = conn.recv(1024)
         except:
@@ -28,10 +25,10 @@ try:
         else:
           conn.send(data)
       #
-      print('Closing socket: ', addr, os.getpid())
-      conn.close()
-      print('Closed: ', addr)
-      os._exit(0)
+    print('Closing socket: ', addr, os.getpid())
+    conn.close()
+    print('Closed: ', addr)
+    os._exit(0)
   #
   for pid in pids:
     print("Pid exited", pid)
