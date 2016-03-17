@@ -1,5 +1,6 @@
 sudo ﻿ln -s /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
 sudo rm /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
-sudo ln -s /home/box/web/etc/hello.py   /etc/gunicorn.d/hello.py
-sudo /etc/init.d/gunicorn restart /home/box/web/hello.py
+#sudo ln -s /home/box/web/etc/hello.py   /etc/gunicorn.d/hello.py
+#sudo /etc/init.d/gunicorn /home/box/web/hello:application --bind 0.0.0.0:8080
+sudo /etc/init.d/gunicorn ask.ask.wsgi:application --bind 0.0.0.0:8000
